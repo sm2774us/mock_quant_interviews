@@ -1318,99 +1318,99 @@ Observe that $Y = 3 + U_2$ and $X = 3 + U_1$, with $U_1, U_2 \sim \text{Unif}(0,
 ### Medium Difficulty Level
 | ID | Problem Name | Difficulty | Key Concept | Result |
 |:---|:---|:---|:---|:---|
-| [1.1](#p1.1) | [Chance Meeting](#p1.1) | Medium | [Geometric Probability](#h1.1) | [$11/36$](#s1.1) |
-| [1.2](#p1.2) | [Absolute Expectation Twist](#p1.2) | Medium | [Normal Distribution](#h1.2) | [$\sqrt{10/\pi}$](#s1.2) |
-| [1.3](#p1.3) | [Basketball Decider](#p1.3) | Medium | [Markov Chains](#h1.3) | [$9/58$](#s1.3) |
+| [1.1](#p1.1) | [Chance Meeting](#p1.1) | Medium | [Geometric Probability](#h1.1) | [ $\frac{11}{36}$ ](#s1.1) |
+| [1.2](#p1.2) | [Absolute Expectation Twist](#p1.2) | Medium | [Normal Distribution](#h1.2) | [ $\sqrt{\frac{10}{\pi}}$ ](#s1.2) |
+| [1.3](#p1.3) | [Basketball Decider](#p1.3) | Medium | [Markov Chains](#h1.3) | [ $\frac{9}{58}$ ](#s1.3) |
 | [1.4](#p1.4) | [Bean Weight Quest](#p1.4) | Medium | [Optimization](#h1.4) | [2](#s1.4) |
-| [1.5](#p1.5) | [Biased Flip Picks](#p1.5) | Medium | [Bayes' Theorem](#h1.5) | [$1/50$](#s1.5) |
+| [1.5](#p1.5) | [Biased Flip Picks](#p1.5) | Medium | [Bayes' Theorem](#h1.5) | [ $\frac{1}{50}$ ](#s1.5) |
 | [1.6](#p1.6) | [Blue Overload Quest](#p1.6) | Medium | [Expected Value](#h1.6) | [4.5](#s1.6) |
-| [1.7](#p1.7) | [Bread Slice Triangles](#p1.7) | Medium | [Geometric Probability](#h1.7) | [$5/8$](#s1.7) |
+| [1.7](#p1.7) | [Bread Slice Triangles](#p1.7) | Medium | [Geometric Probability](#h1.7) | [ $\frac{5}{8}$ ](#s1.7) |
 | [1.8](#p1.8) | [Cinema Seat Shuffle](#p1.8) | Medium | [Combinatorics](#h1.8) | [28800](#s1.8) |
 | [1.9](#p1.9) | [Circle Eviction Enigma](#p1.9) | Medium | [Josephus Problem](#h1.9) | [1952](#s1.9) |
-| [1.10](#p1.10) | [Circle Trio Gamble](#p1.10) | Medium | [Continuous Random Variables](#h1.10) | [$3/4$](#s1.10) |
-| [1.11](#p1.11) | [Coin Flip Paradox](#p1.11) | Medium | [Parity / Symmetry](#h1.11) | [$1/2$](#s1.11) |
-| [1.12](#p1.12) | [Coin Toss Parity](#p1.12) | Medium | [Binomial Distribution](#h1.12) | [$5/16$](#s1.12) |
-| [1.13](#p1.13) | [Colorful Coincidence](#p1.13) | Medium | [Combinatorics](#h1.13) | [$5/18$](#s1.13) |
-| [1.14](#p1.14) | [Corner Cube Conundrum](#p1.14) | Medium | [Conditional Probability](#h1.14) | [$4/9$](#s1.14) |
+| [1.10](#p1.10) | [Circle Trio Gamble](#p1.10) | Medium | [Continuous Random Variables](#h1.10) | [ $\frac{3}{4}$ ](#s1.10) |
+| [1.11](#p1.11) | [Coin Flip Paradox](#p1.11) | Medium | [Parity / Symmetry](#h1.11) | [ $\frac{1}{2}$ ](#s1.11) |
+| [1.12](#p1.12) | [Coin Toss Parity](#p1.12) | Medium | [Binomial Distribution](#h1.12) | [ $\frac{5}{16}$ ](#s1.12) |
+| [1.13](#p1.13) | [Colorful Coincidence](#p1.13) | Medium | [Combinatorics](#h1.13) | [ $\frac{5}{18}$ ](#s1.13) |
+| [1.14](#p1.14) | [Corner Cube Conundrum](#p1.14) | Medium | [Conditional Probability](#h1.14) | [ $\frac{4}{9}$ ](#s1.14) |
 | [1.15](#p1.15) | [Covariance Conundrum](#p1.15) | Medium | [Statistics](#h1.15) | [1](#s1.15) |
-| [1.16](#p1.16) | [Crimson Roll](#p1.16) | Medium | [Probability](#h1.16) | [$1/5$](#s1.16) |
+| [1.16](#p1.16) | [Crimson Roll](#p1.16) | Medium | [Probability](#h1.16) | [ $\frac{1}{5}$ ](#s1.16) |
 | [1.17](#p1.17) | [Dark Deck Dilemma](#p1.17) | Medium | [Probability](#h1.17) | [Deck 2](#s1.17) |
 | [1.18](#p1.18) | [Dice Dilemma Delight](#p1.18) | Medium | [Decision Theory](#h1.18) | [Single Die](#s1.18) |
 | [1.19](#p1.19) | [Dice Gamble Quandary](#p1.19) | Medium | [Expected Value](#h1.19) | [10](#s1.19) |
 | [1.20](#p1.20) | [Dice Ladder Expectation](#p1.20) | Medium | [Conditional Expectation](#h1.20) | [5.25](#s1.20) |
-| [1.21](#p1.21) | [Dice Range Quest](#p1.21) | Medium | [Combinatorics](#h1.21) | [$2/9$](#s1.21) |
+| [1.21](#p1.21) | [Dice Range Quest](#p1.21) | Medium | [Combinatorics](#h1.21) | [ $\frac{2}{9}$ ](#s1.21) |
 | [1.22](#p1.22) | [Dice Strategy Duel](#p1.22) | Medium | [Optimal Stopping](#h1.22) | [7](#s1.22) |
-| [1.23](#p1.23) | [Dice Trio Minima](#p1.23) | Medium | [Order Statistics](#h1.23) | [$49/24$](#s1.23) |
+| [1.23](#p1.23) | [Dice Trio Minima](#p1.23) | Medium | [Order Statistics](#h1.23) | [ $\frac{49}{24}$ ](#s1.23) |
 | [1.24](#p1.24) | [Dice Under Fifty](#p1.24) | Medium | [Probability](#h1.24) | [3](#s1.24) |
 | [1.25](#p1.25) | [Dicey Decisions](#p1.25) | Medium | [Optimal Stopping](#h1.25) | [4.25](#s1.25) |
 | [1.26](#p1.26) | [Divisor Hunt](#p1.26) | Medium | [Number Theory](#h1.26) | [40](#s1.26) |
-| [1.27](#p1.27) | [Duo Draw Drama](#p1.27) | Medium | [Combinatorics](#h1.27) | [$55/703$](#s1.27) |
+| [1.27](#p1.27) | [Duo Draw Drama](#p1.27) | Medium | [Combinatorics](#h1.27) | [ $\frac{55}{703}$ ](#s1.27) |
 | [1.28](#p1.28) | [Equal Growth Riddle](#p1.28) | Medium | [Calculus](#h1.28) | [1](#s1.28) |
 | [1.29](#p1.29) | [Fair Door Hunt](#p1.29) | Medium | [Expected Value](#h1.29) | [50](#s1.29) |
-| [1.30](#p1.30) | [Five Before Fate](#p1.30) | Medium | [Negative Binomial](#h1.30) | [$1/32$](#s1.30) |
+| [1.30](#p1.30) | [Five Before Fate](#p1.30) | Medium | [Negative Binomial](#h1.30) | [ $\frac{1}{32}$ ](#s1.30) |
 | [1.31](#p1.31) | [Fives Roulette](#p1.31) | Medium | [Expected Value](#h1.31) | [1](#s1.31) |
 | [1.32](#p1.32) | [Handshake Puzzle](#p1.32) | Medium | [Logic](#h1.32) | [8](#s1.32) |
-| [1.33](#p1.33) | [Hat Chaos Calculus](#p1.33) | Medium | [Derangements](#h1.33) | [$1/e$](#s1.33) |
-| [1.34](#p1.34) | [Heads Below Five](#p1.34) | Medium | [Binomial Distribution](#h1.34) | [$193/512$](#s1.34) |
+| [1.33](#p1.33) | [Hat Chaos Calculus](#p1.33) | Medium | [Derangements](#h1.33) | [ $\frac{1}{e}$ ](#s1.33) |
+| [1.34](#p1.34) | [Heads Below Five](#p1.34) | Medium | [Binomial Distribution](#h1.34) | [ $\frac{193}{512}$ ](#s1.34) |
 | [1.35](#p1.35) | [Horse Selection Logic](#p1.35) | Medium | [Algorithms](#h1.35) | [7](#s1.35) |
-| [1.36](#p1.36) | [Uniform Sum Boundary](#p1.36) | Medium | [Geometric Probability](#h1.36) | [$1/8$](#s1.36) |
-| [1.37](#p1.37) | [Heads Wins](#p1.37) | Medium | [Gambler's Ruin](#h1.37) | [$4/7$](#s1.37) |
-| [1.38](#p1.38) | [Hefty Quest](#p1.38) | Medium | [Algorithms](#h1.38) | [$\lceil \log_3 n \rceil$](#s1.38) |
+| [1.36](#p1.36) | [Uniform Sum Boundary](#p1.36) | Medium | [Geometric Probability](#h1.36) | [ $\frac{1}{8}$ ](#s1.36) |
+| [1.37](#p1.37) | [Heads Wins](#p1.37) | Medium | [Gambler's Ruin](#h1.37) | [ $\frac{4}{7}$ ](#s1.37) |
+| [1.38](#p1.38) | [Hefty Quest](#p1.38) | Medium | [Algorithms](#h1.38) | [ $\lceil \log_3 n \rceil$ ](#s1.38) |
 | [1.39](#p1.39) | [Height Harmony](#p1.39) | Medium | [Combinatorics](#h1.39) | [256](#s1.39) |
-| [1.40](#p1.40) | [Hidden Color Paradox](#p1.40) | Medium | [Conditional Probability](#h1.40) | [$1/2$](#s1.40) |
-| [1.41](#p1.41) | [High Rollers Expectation](#p1.41) | Medium | [Normal Distribution](#h1.41) | [$1/\sqrt{\pi}$](#s1.41) |
-| [1.42](#p1.42) | [Inner Circle Chance](#p1.42) | Medium | [Geometric Probability](#h1.42) | [$217/729$](#s1.42) |
+| [1.40](#p1.40) | [Hidden Color Paradox](#p1.40) | Medium | [Conditional Probability](#h1.40) | [ $\frac{1}{2}$ ](#s1.40) |
+| [1.41](#p1.41) | [High Rollers Expectation](#p1.41) | Medium | [Normal Distribution](#h1.41) | [ $\frac{1}{\sqrt{\pi}}$ ](#s1.41) |
+| [1.42](#p1.42) | [Inner Circle Chance](#p1.42) | Medium | [Geometric Probability](#h1.42) | [ $\frac{217}{729}$ ](#s1.42) |
 | [1.43](#p1.43) | [Last Number Standing](#p1.43) | Medium | [Josephus Problem](#h1.43) | [976](#s1.43) |
-| [1.44](#p1.44) | [Logarithmic Wonderland](#p1.44) | Medium | [Log-Normal Distribution](#h1.44) | [$1/2$](#s1.44) |
+| [1.44](#p1.44) | [Logarithmic Wonderland](#p1.44) | Medium | [Log-Normal Distribution](#h1.44) | [ $\frac{1}{2}$ ](#s1.44) |
 | [1.45](#p1.45) | [Lucky Even Tosses](#p1.45) | Medium | [Markov Chains](#h1.45) | [2](#s1.45) |
-| [1.46](#p1.46) | [Max Die Four](#p1.46) | Medium | [Order Statistics](#h1.46) | [$37/216$](#s1.46) |
+| [1.46](#p1.46) | [Max Die Four](#p1.46) | Medium | [Order Statistics](#h1.46) | [ $\frac{37}{216}$ ](#s1.46) |
 | [1.47](#p1.47) | [Nine Sum Quest](#p1.47) | Medium | [Combinatorics](#h1.47) | [715](#s1.47) |
 | [1.48](#p1.48) | [Painted Cubes Quest](#p1.48) | Medium | [Combinatorics](#h1.48) | [488](#s1.48) |
-| [1.49](#p1.49) | [Prep Odds Mixup](#p1.49) | Medium | [Bayes' Theorem](#h1.49) | [$20/41$](#s1.49) |
-| [1.50](#p1.50) | [Prime Roll Showdown](#p1.50) | Medium | [Symmetry](#h1.50) | [$1/2$](#s1.50) |
+| [1.49](#p1.49) | [Prep Odds Mixup](#p1.49) | Medium | [Bayes' Theorem](#h1.49) | [ $\frac{20}{41}$ ](#s1.49) |
+| [1.50](#p1.50) | [Prime Roll Showdown](#p1.50) | Medium | [Symmetry](#h1.50) | [ $\frac{1}{2}$ ](#s1.50) |
 | [1.51](#p1.51) | [Royal Race Earnings](#p1.51) | Medium | [Combinatorics](#h1.51) | [60](#s1.51) |
 | [1.52](#p1.52) | [Sheep Paradox](#p1.52) | Medium | [Brainteasers](#h1.52) | [1](#s1.52) |
-| [1.53](#p1.53) | [Spherical Harmony](#p1.53) | Medium | [Probability](#h1.53) | [$1/3$](#s1.53) |
+| [1.53](#p1.53) | [Spherical Harmony](#p1.53) | Medium | [Probability](#h1.53) | [ $\frac{1}{3}$ ](#s1.53) |
 | [1.54](#p1.54) | [Triangular Square Quest](#p1.54) | Medium | [Geometry](#h1.54) | [36](#s1.54) |
-| [1.55](#p1.55) | [Triple Ten Toss](#p1.55) | Medium | [Combinatorics](#h1.55) | [$1/8$](#s1.55) |
-| [1.56](#p1.56) | [Tripod Balance Challenge](#p1.56) | Medium | [Continuous Random Variables](#h1.56) | [$1/4$](#s1.56) |
+| [1.55](#p1.55) | [Triple Ten Toss](#p1.55) | Medium | [Combinatorics](#h1.55) | [ $\frac{1}{8}$ ](#s1.55) |
+| [1.56](#p1.56) | [Tripod Balance Challenge](#p1.56) | Medium | [Continuous Random Variables](#h1.56) | [ $\frac{1}{4}$ ](#s1.56) |
 | [1.57](#p1.57) | [Unlinked Puzzle](#p1.57) | Medium | [Statistics](#h1.57) | [Counterexample](#s1.57) |
-| [1.58](#p1.58) | [Weighted Dice Duet](#p1.58) | Medium | [Combinatorics](#h1.58) | [$8/63$](#s1.58) |
+| [1.58](#p1.58) | [Weighted Dice Duet](#p1.58) | Medium | [Combinatorics](#h1.58) | [ $\frac{8}{63}$ ](#s1.58) |
 
 ### Easy Difficulty Level
 | ID | Problem Name | Difficulty | Key Concept | Result |
 |:---|:---|:---|:---|:---|
-| [2.1](#p2.1) | [Bullseye Odds](#p2.1) | Easy | [Complementary Probability](#h2.1) | [$63/64$](#s2.1) |
+| [2.1](#p2.1) | [Bullseye Odds](#p2.1) | Easy | [Complementary Probability](#h2.1) | [ $\frac{63}{64}$ ](#s2.1) |
 | [2.2](#p2.2) | [Cheesecake Geometry](#p2.2) | Easy | [Geometry](#h2.2) | [3 cuts](#s2.2) |
-| [2.3](#p2.3) | [Dialing Dreams](#p2.3) | Easy | [Combinatorics](#h2.3) | [$10^6$](#s2.3) |
-| [2.4](#p2.4) | [Even Heads Challenge](#p2.4) | Easy | [Probability](#h2.4) | [$1/2$](#s2.4) |
+| [2.3](#p2.3) | [Dialing Dreams](#p2.3) | Easy | [Combinatorics](#h2.3) | [ $10^6$ ](#s2.3) |
+| [2.4](#p2.4) | [Even Heads Challenge](#p2.4) | Easy | [Probability](#h2.4) | [ $\frac{1}{2}$ ](#s2.4) |
 | [2.5](#p2.5) | [Handshake Hoopla](#p2.5) | Easy | [Combinatorics](#h2.5) | [45](#s2.5) |
-| [2.6](#p2.6) | [Digit Sum Odds](#p2.6) | Easy | [Probability](#h2.6) | [$1/2$](#s2.6) |
-| [2.7](#p2.7) | [Lilypad Countdown](#p2.7) | Easy | [Exponential Growth](#h2.7) | [$3/4$](#s2.7) |
+| [2.6](#p2.6) | [Digit Sum Odds](#p2.6) | Easy | [Probability](#h2.6) | [ $\frac{1}{2}$ ](#s2.6) |
+| [2.7](#p2.7) | [Lilypad Countdown](#p2.7) | Easy | [Exponential Growth](#h2.7) | [ $\frac{3}{4}$ ](#s2.7) |
 | [2.8](#p2.8) | [Endless Square Roots](#p2.8) | Easy | [Algebra](#h2.8) | [2](#s2.8) |
 | [2.9](#p2.9) | [Pizza Squad Variance](#p2.9) | Easy | [Statistics](#h2.9) | [300](#s2.9) |
-| [2.10](#p2.10) | [Sock Pair Puzzle](#p2.10) | Easy | [Combinatorics](#h2.10) | [$1/19$](#s2.10) |
+| [2.10](#p2.10) | [Sock Pair Puzzle](#p2.10) | Easy | [Combinatorics](#h2.10) | [ $\frac{1}{19}$ ](#s2.10) |
 | [2.11](#p2.11) | [Stickered Surface Cubes](#p2.11) | Easy | [Combinatorics](#h2.11) | [56](#s2.11) |
-| [2.12](#p2.12) | [Triangular Ant Trek](#p2.12) | Easy | [Probability](#h2.12) | [$1/4$](#s2.12) |
+| [2.12](#p2.12) | [Triangular Ant Trek](#p2.12) | Easy | [Probability](#h2.12) | [ $\frac{1}{4}$ ](#s2.12) |
 
 ### Hard Difficulty Level
 | ID | Problem Name | Difficulty | Key Concept | Result |
 |:---|:---|:---|:---|:---|
-| [3.1](#p3.1) | [Coin Clash](#p3.1) | Hard | [Symmetry](#h3.1) | [$1/2$](#s3.1) |
+| [3.1](#p3.1) | [Coin Clash](#p3.1) | Hard | [Symmetry](#h3.1) | [ $\frac{1}{2}$ ](#s3.1) |
 | [3.2](#p3.2) | [Dice Dilemma](#p3.2) | Hard | [Conditional Expectation](#h3.2) | [2.5](#s3.2) |
 | [3.3](#p3.3) | [Dice Paradox Puzzle](#p3.3) | Hard | [Conditional Probability](#h3.3) | [65](#s3.3) |
 | [3.4](#p3.4) | [Double Dice Delight](#p3.4) | Hard | [Expected Value](#h3.4) | [42](#s3.4) |
 | [3.5](#p3.5) | [Random Walk Cube](#p3.5) | Hard | [Markov Chains](#h3.5) | [10](#s3.5) |
-| [3.6](#p3.6) | [Heads Prediction Puzzle](#p3.6) | Hard | [Bayes' Theorem](#h3.6) | [$\approx 0.912$](#s3.6) |
-| [3.7](#p3.7) | [Intersecting Lines Probability](#p3.7) | Hard | [Continuous Random Variables](#h3.7) | [$2/3$](#s3.7) |
+| [3.6](#p3.6) | [Heads Prediction Puzzle](#p3.6) | Hard | [Bayes' Theorem](#h3.6) | [ $\approx 0.912$ ](#s3.6) |
+| [3.7](#p3.7) | [Intersecting Lines Probability](#p3.7) | Hard | [Continuous Random Variables](#h3.7) | [ $\frac{2}{3}$ ](#s3.7) |
 | [3.8](#p3.8) | [King Flip Countdown](#p3.8) | Hard | [Combinatorics](#h3.8) | [54](#s3.8) |
 | [3.9](#p3.9) | [Marble Mindgame](#p3.9) | Hard | [Expected Value](#h3.9) | [67](#s3.9) |
-| [3.10](#p3.10) | [Roll Gamble Strategy](#p3.10) | Hard | [Games](#h3.10) | [$125/9$](#s3.10) |
+| [3.10](#p3.10) | [Roll Gamble Strategy](#p3.10) | Hard | [Games](#h3.10) | [ $\frac{125}{9}$ ](#s3.10) |
 | [3.11](#p3.11) | [Safe Code Puzzle](#p3.11) | Hard | [Combinatorics](#h3.11) | [100](#s3.11) |
-| [3.12](#p3.12) | [Sphere Encapsulation Challenge](#p3.12) | Hard | [Geometry](#h3.12) | [$1/8$](#s3.12) |
+| [3.12](#p3.12) | [Sphere Encapsulation Challenge](#p3.12) | Hard | [Geometry](#h3.12) | [ $\frac{1}{8}$ ](#s3.12) |
 | [3.13](#p3.13) | [Sprout Feast Frenzy](#p3.13) | Hard | [Conditional Probability](#h3.13) | [5.25](#s3.13) |
-| [3.14](#p3.14) | [Triangular Trisection](#p3.14) | Hard | [Continuous Random Variables](#h3.14) | [$1/4$](#s3.14) |
-| [3.15](#p3.15) | [Uniform Puzzler](#p3.15) | Hard | [Expected Value](#h3.15) | [$1/3$](#s3.15) |
+| [3.14](#p3.14) | [Triangular Trisection](#p3.14) | Hard | [Continuous Random Variables](#h3.14) | [ $\frac{1}{4}$ ](#s3.14) |
+| [3.15](#p3.15) | [Uniform Puzzler](#p3.15) | Hard | [Expected Value](#h3.15) | [ $\frac{1}{3}$ ](#s3.15) |
 
 #### References
 - *Introduction to Probability* by Dimitri Bertsekas and John Tsitsiklis (MIT).

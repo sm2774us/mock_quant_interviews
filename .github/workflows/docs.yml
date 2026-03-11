@@ -27,7 +27,7 @@ jobs:
 
       - name: Install MkDocs Material and Dependencies
         run: |
-          pip install "mkdocs-material==9.5.3"
+          pip install "mkdocs-material[recommended]==9.5.3"
           pip install pymdown-extensions
 
       - name: Build and Deploy

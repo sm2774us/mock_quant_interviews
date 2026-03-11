@@ -16,7 +16,7 @@ nav:
     - Jane Street: jane_street.md
 
 markdown_extensions:
-  - arithmatex:
+  - pymdownx.arithmatex:
       generic: true
   - pymdownx.superfences
   - pymdownx.tabbed:

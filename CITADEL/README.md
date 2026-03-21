@@ -14,29 +14,22 @@ Two quants are arranging a meal at Dorsia. Suppose each one independently shows 
 Represent the arrival times as coordinates $(X, Y)$ in a $60 \times 60$ square. The condition for meeting is $|X - Y| \le 10$.
 
 #### <a id="s1.1"></a>Solution
-- Let $X$ and $Y$ be the arrival times (in minutes past 8:00pm) for the two quants.
-- $X, Y \sim \text{Unif}(0, 60)$ independently.
-- The sample space is a square with area $60 \times 60 = 3600$.
-- They meet if $|X - Y| \le 10$, which is equivalent to $X - 10 \le Y \le X + 10$.
-- It is easier to calculate the probability of *not* meeting ($|X - Y| > 10$):
-  - This region consists of two right triangles:
-    - $Y > X + 10$: A triangle with vertices $(0, 10), (0, 60), (50, 60)$ and area $\frac{1}{2} \times 50 \times 50 = 1250$.
-    - $X > Y + 10$: A triangle with vertices $(10, 0), (60, 0), (60, 50)$ and area $\frac{1}{2} \times 50 \times 50 = 1250$.
-  - Total "no-meet" area = $1250 + 1250 = 2500$.
-- The "meet" area = $3600 - 2500 = 1100$.
-- $P(\text{Meeting}) = \frac{1100}{3600} = \frac{11}{36}$.
-
 The solution to the likelihood of the two quants meeting is $11/36$.
 This is a classic geometric probability problem where time is represented as a physical area. Because arrival times $X$ and $Y$ are independent and uniform, every possible pair of arrival times $(X, Y)$ within the hour is equally likely. [1, 2] 
-1. Define the sample space
+
+__1. Define the sample space__
+
 Since both quants can arrive at any point between 8:00 PM and 9:00 PM (0 to 60 minutes), the total sample space is a $60 \times 60$ square.
 
 * Total Area = $60 \times 60 = 3600$ square units. [3] 
 
-2. Identify the meeting condition
+__2. Identify the meeting condition__
+
 The quants meet only if the time between their arrivals is 10 minutes or less. Mathematically, this is expressed as:
 $$|Y - X| \leq 10$$ This inequality creates a shaded "strip" along the diagonal of the $60 \times 60$ square. It is easier to calculate the area where they don't meet and subtract it from the total. [2, 4] 
-3. Calculate the non-meeting area
+
+__3. Calculate the non-meeting area__
+
 They fail to meet if $|Y - X| > 10$. This happens in two scenarios:
 
 * Quant $Y$ arrives more than 10 minutes after $X$: $Y - X > 10 \implies Y > X + 10$
@@ -47,7 +40,8 @@ These regions form two identical right triangles in the corners of the square. E
 * Area of one triangle = $\frac{1}{2} \times 50 \times 50 = 1250$
 * Total non-meeting area = $1250 + 1250 = 2500$ (or $50^2 = 2500$)
 
-4. Find the meeting area and probability
+__4. Find the meeting area and probability__
+
 To find the area where they do meet, subtract the non-meeting area from the total square:
 
 * Meeting Area = $3600 - 2500 = 1100$
@@ -55,7 +49,10 @@ To find the area where they do meet, subtract the non-meeting area from the tota
 
 Reducing the fraction gives you:
 $$\frac{1100}{3600} = \frac{11}{36}$$ 
-Final Answer
+
+![Geometric Probability Space](./images/problem_1.png)
+
+__Final Answer__
 The probability that the quants meet is $11/36$.
 This result confirms that in a one-hour window, if both people wait 10 minutes, they have a roughly 30.5% chance of connecting.
 Would you like to see how this probability changes if the waiting time is increased or decreased?

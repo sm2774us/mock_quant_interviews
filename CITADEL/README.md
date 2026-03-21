@@ -57,77 +57,733 @@ The probability that the quants meet is $11/36$.
 This result confirms that in a one-hour window, if both people wait 10 minutes, they have a roughly 30.5% chance of connecting.
 Would you like to see how this probability changes if the waiting time is increased or decreased?
 
-[1] [https://bookdown.org](https://bookdown.org/kevin_davisross/probsim-book/sec-language-outcomes.html)
-[2] [https://www.vaia.com](https://www.vaia.com/en-us/textbooks/math/statistics-1-edition/chapter-5/problem-199-two-individuals-agree-to-meet-at-a-certain-spot-/)
-[3] [https://www.vaia.com](https://www.vaia.com/en-us/textbooks/math/finite-discrete-math-1-edition/chapter-9/problem-521-two-individuals-agree-to-meet-at-a-certain-spot-/#:~:text=Define%20the%20Region%20of%20Interest%20If%20we,X%20%E2%88%92%20Y%20%7C%20%E2%89%A4%2010%20.)
-[4] [https://math.stackexchange.com](https://math.stackexchange.com/questions/2759244/probability-two-people-will-meet-within-10-minutes-of-each-other)
-
+__References:__
+- [1] [https://bookdown.org](https://bookdown.org/kevin_davisross/probsim-book/sec-language-outcomes.html)
+- [2] [https://www.vaia.com](https://www.vaia.com/en-us/textbooks/math/statistics-1-edition/chapter-5/problem-199-two-individuals-agree-to-meet-at-a-certain-spot-/)
+- [3] [https://www.vaia.com](https://www.vaia.com/en-us/textbooks/math/finite-discrete-math-1-edition/chapter-9/problem-521-two-individuals-agree-to-meet-at-a-certain-spot-/#:~:text=Define%20the%20Region%20of%20Interest%20If%20we,X%20%E2%88%92%20Y%20%7C%20%E2%89%A4%2010%20.)
+- [4] [https://math.stackexchange.com](https://math.stackexchange.com/questions/2759244/probability-two-people-will-meet-within-10-minutes-of-each-other)
 
 ### <a id="p1.2"></a>Problem 1.2: Absolute Expectation Twist
+Consider $X \sim N(0, 1)$ and $Y \sim N(0, 4)$, which are independent variables. 
+
+Determine $E(|Y - X|)$.
+
 #### <a id="h1.2"></a>Hint
 The difference of independent normal variables is also normally distributed. Use the property $E[|Z|] = \sigma \sqrt{2/\pi}$ for $Z \sim N(0, \sigma^2)$.
 
 #### <a id="s1.2"></a>Solution
-- Let $Z = Y - X$.
-- Since $X$ and $Y$ are independent normal variables, $Z$ is also normal:
-  - $E[Z] = E[Y] - E[X] = 0 - 0 = 0$.
-  - $\text{Var}(Z) = \text{Var}(Y) + \text{Var}(X) = 4 + 1 = 5$ (since they are independent).
-- Thus, $Z \sim N(0, 5)$, which means $\sigma_Z = \sqrt{5}$.
-- The expected value of the absolute value of a centered normal variable $Z$ is $E[|Z|] = \sigma_Z \sqrt{\frac{2}{\pi}}$.
-- $E[|Y - X|] = \sqrt{5} \sqrt{\frac{2}{\pi}} = \sqrt{\frac{10}{\pi}}$.
+To determine $E[|Y - X|]$, we first define the distribution of the combined variable and then apply the properties of the **Half-Normal distribution**.
+
+##### 1. Characterize the Random Variable $Z$
+Let $Z = Y - X$. Since $X$ and $Y$ are independent and normally distributed, their linear combination $Z$ is also a normal distribution: $Z \sim N(\mu_Z, \sigma_Z^2)$.
+
+* **The Mean ($\mu_Z$):**
+    $$E[Z] = E[Y] - E[X] = 0 - 0 = 0$$
+* **The Variance ($\sigma_Z^2$):**
+    Because $X$ and $Y$ are independent, we sum their variances (note that $\text{Var}(-X) = (-1)^2 \text{Var}(X)$):
+    $$\text{Var}(Z) = \text{Var}(Y) + \text{Var}(X) = 4 + 1 = 5$$
+* **The Standard Deviation ($\sigma_Z$):**
+    $$\sigma_Z = \sqrt{5}$$
+
+Thus, $Z$ follows a centered normal distribution: $Z \sim N(0, 5)$.
+
+---
+
+##### 2. Find the Expected Absolute Value
+We are looking for $E[|Z|]$, which is the mean of the absolute value of a normal random variable. This transformation is known as the **Half-Normal distribution**.
+
+For any variable $Z \sim N(0, \sigma^2)$, the expected value of its magnitude is given by the formula:
+
+$$E[|Z|] = \sigma \sqrt{\frac{2}{\pi}}$$
+
+##### 3. Final Calculation
+Plugging our specific standard deviation $\sigma_Z = \sqrt{5}$ into the formula:
+
+$$E[|Y - X|] = \sqrt{5} \cdot \sqrt{\frac{2}{\pi}}$$
+
+Combining the radicals:
+
+$$E[|Y - X|] = \sqrt{\frac{10}{\pi}}$$
+
+**Numerical Approximation:**
+Since $\pi \approx 3.14159$:
+$$E[|Y - X|] \approx \sqrt{3.183} \approx 1.784$$
+
+---
+
+##### Summary Table
+| Variable | Mean ($\mu$) | Variance ($\sigma^2$) | Std Dev ($\sigma$) |
+| :--- | :--- | :--- | :--- |
+| $X$ | $0$ | $1$ | $1$ |
+| $Y$ | $0$ | $4$ | $2$ |
+| $Z = Y - X$ | **$0$** | **$5$** | **$\sqrt{5}$** |
+
+---
+
+##### EXTRA: How do we derive the $E[|Z|] = \sigma \sqrt{2/\pi}$ formula
+
+To derive the formula $E[|Z|] = \sigma \sqrt{\frac{2}{\pi}}$, we must integrate the absolute value of the random variable against its probability density function (PDF).
+
+##### 1. Define the PDF
+For a centered normal distribution $Z \sim N(0, \sigma^2)$, the PDF is:
+$$f(z) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{z^2}{2\sigma^2}}$$
+
+The expected value of the absolute value is defined as:
+$$E[|Z|] = \int_{-\infty}^{\infty} |z| f(z) dz$$
+
+##### 2. Simplify using Symmetry
+Because $|z|$ and $f(z)$ are both even functions (symmetric around the y-axis), the integral from $-\infty$ to $0$ is identical to the integral from $0$ to $\infty$. We can simplify the calculation by doubling the integral of the positive side:
+
+$$E[|Z|] = 2 \int_{0}^{\infty} z \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{z^2}{2\sigma^2}} dz$$
+
+Pulling constants outside the integral:
+
+$$E[|Z|] = \frac{2}{\sigma \sqrt{2\pi}} \int_{0}^{\infty} z e^{-\frac{z^2}{2\sigma^2}} dz$$
+
+##### 3. Solve via Substitution
+To solve $\int_{0}^{\infty} z e^{-\frac{z^2}{2\sigma^2}} dz$, we use $u$-substitution:
+* Let $u = \frac{z^2}{2\sigma^2}$
+* Then $du = \frac{z}{\sigma^2} dz$, which means $z dz = \sigma^2 du$
+* Limits: When $z=0, u=0$; when $z \to \infty, u \to \infty$.
+
+Substituting these into the integral:
+
+$$\int_{0}^{\infty} e^{-u} (\sigma^2 du) = \sigma^2 \int_{0}^{\infty} e^{-u} du$$
+
+$$\sigma^2 [-e^{-u}]_0^\infty = \sigma^2 (0 - (-1)) = \sigma^2$$
+
+##### 4. Combine the Results
+Now, plug the result of the integral ($\sigma^2$) back into our coefficient from Step 2:
+
+$$E[|Z|] = \frac{2}{\sigma \sqrt{2\pi}} \cdot \sigma^2$$
+
+Cancel out one $\sigma$:
+
+$$E[|Z|] = \frac{2\sigma}{\sqrt{2\pi}}$$
+
+To clean up the fraction, we recognize that $2 = \sqrt{4}$:
+
+$$E[|Z|] = \sigma \sqrt{\frac{4}{2\pi}} = \sigma \sqrt{\frac{2}{\pi}}$$
+
+---
+
+##### Application to your problem
+Given your specific parameters where $\sigma = \sqrt{5}$:
+
+$$E[|Y-X|] = \sqrt{5} \sqrt{\frac{2}{\pi}} = \sqrt{\frac{10}{\pi}}$$
+
+This confirms that the "average" difference between your two points in this 1D space is exactly $\sqrt{10/\pi}$.
+
+---
 
 ### <a id="p1.3"></a>Problem 1.3: Basketball Decider
+Alice and Bob engage in basketball. They both start with 0 points. In every game, Alice has a 30 probability to win, independent of other games. The winner of a game earns 1 point and the loser loses 1 point. The first to reach 2 points wins the match. Determine the probability that Alice wins the match.
+
 #### <a id="h1.3"></a>Hint
 Model this as a Gambler's Ruin problem. Since the winner gets +1 and the loser gets -1, the difference in points changes by 2 or -2. Alternatively, view it as a random walk on scores.
 
 #### <a id="s1.3"></a>Solution
-- Let $A$ be Alice's score and $B$ be Bob's score. Initially $A=0, B=0$.
-- A win for Alice: $A \to A+1, B \to B-1$. A win for Bob: $B \to B+1, A \to A-1$.
-- In all cases, $A + B = 0$, so $B = -A$. The match ends when $A=2$ (Alice wins) or $A=-2$ (Bob wins).
-- Let $p = 0.3$ be the probability Alice wins a game and $q = 0.7$ be the probability Bob wins.
-- This is a Gambler's Ruin problem on the state of $A \in \{-2, -1, 0, 1, 2\}$:
-  - We want the probability of reaching 2 before reaching -2, starting from 0.
-  - Let $P_i$ be the probability of reaching 2 starting from state $i$.
-  - $P_2 = 1$, $P_{-2} = 0$.
-  - The general formula for $P_i$ when $p \neq q$ is $P_i = \frac{1 - (q/p)^{i - (-2)}}{1 - (q/p)^{2 - (-2)}} = \frac{1 - (q/p)^{i+2}}{1 - (q/p)^4}$.
-- For $i = 0$:
-  - $P_0 = \frac{1 - (0.7/0.3)^2}{1 - (0.7/0.3)^4} = \frac{1 - (7/3)^2}{1 - (7/3)^4}$.
-  - $P_0 = \frac{1 - 49/9}{1 - 2401/81} = \frac{-40/9}{-2320/81} = \frac{40}{9} \cdot \frac{81}{2320} = \frac{360}{2320} = \frac{36}{232} = \frac{9}{58}$.
+This is a classic **Gambler's Ruin** problem or a **Random Walk** with absorbing boundaries. Since the match ends as soon as someone reaches +2 (Alice wins) or -2 (Bob wins), we can map out every possible state.
+
+##### 1. Define the Probabilities
+Let $p$ be the probability that Alice wins a single game, and $q$ be the probability that Bob wins.
+* $p = 0.3$ (Alice wins)
+* $q = 1 - p = 0.7$ (Bob wins)
+
+##### 2. Map the States (State Space)
+We can visualize this as a Markov Chain where $S$ represents Alice's current net score:
+* **State 0:** Starting point (Both have 0 points).
+* **State +1:** Alice leads by 1.
+* **State -1:** Bob leads by 1.
+* **State +2:** **Alice wins the match** (Terminal state).
+* **State -2:** **Bob wins the match** (Terminal state).
+
+---
+
+##### 3. Set Up the Equations
+Let $P(s)$ be the probability that Alice eventually wins the match, given that her current net score is $s$. We want to find $P(0)$.
+
+We know the boundary conditions:
+* $P(2) = 1$ (Alice has already won).
+* $P(-2) = 0$ (Bob has already won).
+
+For the transient states (0, 1, -1), the probability of winning is the weighted average of the next possible states:
+1.  **At State 0:** $P(0) = p P(1) + q P(-1)$
+2.  **At State 1:** $P(1) = p P(2) + q P(0) \implies P(1) = 0.3(1) + 0.7 P(0)$
+3.  **At State -1:** $P(-1) = p P(0) + q P(-2) \implies P(-1) = 0.3 P(0) + 0.7(0)$
+
+---
+
+##### 4. Solve the System
+Substitute the expressions for $P(1)$ and $P(-1)$ into the equation for $P(0)$:
+
+$$P(0) = 0.3 \left[ 0.3 + 0.7 P(0) \right] + 0.7 \left[ 0.3 P(0) \right]$$
+
+Distribute the values:
+
+$$P(0) = 0.09 + 0.21 P(0) + 0.21 P(0)$$
+
+$$P(0) = 0.09 + 0.42 P(0)$$
+
+Subtract $0.42 P(0)$ from both sides:
+
+$$0.58 P(0) = 0.09$$
+
+Solve for $P(0)$:
+
+$$P(0) = \frac{0.09}{0.58} = \frac{9}{58}$$
+
+---
+
+##### 5. Alternative Method: Infinite Series
+You can also think of this as Alice winning in specific sequences:
+* **Win in 2 games:** Alice wins, Alice wins ($p^2 = 0.09$).
+* **Win in 4 games:** Alice and Bob split the first two games (in any order), then Alice wins two in a row ($[2pq] \cdot p^2$).
+* **Win in 6 games:** They split the first two, split the second two, then Alice wins two ($[2pq]^2 \cdot p^2$).
+
+This forms a geometric series:
+
+$$P(\text{Win}) = p^2 + (2pq)p^2 + (2pq)^2 p^2 + \dots$$
+
+$$P(\text{Win}) = \frac{p^2}{1 - 2pq}$$
+
+Plugging in the numbers:
+
+$$P(\text{Win}) = \frac{0.3^2}{1 - 2(0.3)(0.7)} = \frac{0.09}{1 - 0.42} = \frac{0.09}{0.58} = \frac{9}{58}$$
+
+##### Final Result
+The probability that Alice wins the match is **$\frac{9}{58}$**, which is approximately **15.52%**.
+
+##### SIMULATION IN Python
+To verify the theoretical result of **$9/58 \approx 0.15517$**, we can build a Monte Carlo simulation. 
+
+Using **Python 3.13**, we can leverage the improved `statistics` module and refined type hinting. Below is a modern, production-grade simulation structured to be highly readable and maintainable.
+
+```python
+"""Simulation to verify the probability of Alice winning a basketball match.
+
+This module simulates a "first to 2 points" match where Alice has a 30% 
+win probability per game. It uses Monte Carlo methods to converge on 
+the theoretical probability of 9/58.
+"""
+
+import random
+from dataclasses import dataclass
+from enum import Enum, auto
+from statistics import fmean
+from typing import Final
+
+# Alice's win probability per game (p = 0.3)
+ALICE_WIN_PROB: Final[float] = 0.3
+# The net score required to win the match (State +2 or -2)
+WIN_THRESHOLD: Final[int] = 2
+# Number of match iterations for the simulation
+NUM_SIMULATIONS: Final[int] = 100_000
+
+class MatchResult(Enum):
+    """Represent the outcome of a match."""
+    ALICE_WINS = auto()
+    BOB_WINS = auto()
+
+@dataclass(frozen=True)
+class SimulationConfig:
+    """Configuration parameters for the basketball simulation."""
+    alice_prob: float
+    threshold: int
+
+def simulate_single_match(config: SimulationConfig) -> MatchResult:
+    """Simulates one match until a player reaches the win threshold.
+    
+    The match is modeled as a random walk starting at 0. Alice winning a game 
+    increments the score; Bob winning decrements it.
+
+    Args:
+        config: The simulation settings including win probability and threshold.
+
+    Returns:
+        MatchResult.ALICE_WINS if net score hits +threshold, 
+        else MatchResult.BOB_WINS.
+    """
+    net_score: int = 0
+    
+    while abs(net_score) < config.threshold:
+        # random.random() is efficient for simple Bernoulli trials
+        if random.random() < config.alice_prob:
+            net_score += 1
+        else:
+            net_score -= 1
+            
+    return MatchResult.ALICE_WINS if net_score == config.threshold else MatchResult.BOB_WINS
+
+def run_monte_carlo(iterations: int) -> float:
+    """Runs multiple match simulations and calculates the win frequency.
+
+    Args:
+        iterations: Total number of matches to simulate.
+
+    Returns:
+        The proportion of matches won by Alice.
+    """
+    config = SimulationConfig(alice_prob=ALICE_WIN_PROB, threshold=WIN_THRESHOLD)
+    
+    # Python 3.13: Generator expressions in fmean are highly efficient
+    results = (
+        1 if simulate_single_match(config) == MatchResult.ALICE_WINS else 0 
+        for _ in range(iterations)
+    )
+    
+    return fmean(results)
+
+if __name__ == "__main__":
+    # Calculate the frequency
+    observed_prob = run_monte_carlo(NUM_SIMULATIONS)
+    theoretical_prob = 9 / 58
+
+    print(f"--- Simulation Results ({NUM_SIMULATIONS:,} matches) ---")
+    print(f"Observed Win Rate:    {observed_prob:.5f}")
+    print(f"Theoretical Win Rate: {theoretical_prob:.5f}")
+    print(f"Difference:           {abs(observed_prob - theoretical_prob):.5f}")
+```
+
+##### Key Python 3.13 & Modern Features Used:
+* **`statistics.fmean`**: Faster than `mean()`, it converts data to floats and computes in a single pass. In 3.13, it remains the gold standard for calculating averages from generators.
+* **Enhanced Type Hinting**: Utilizing `Final` for constants and `dataclasses` for configuration ensures the code is robust and self-documenting.
+* **Improved Error Messages**: While not visible in the code logic, Python 3.13’s improved interpreter would provide much clearer tracebacks if any structural errors were introduced during modification.
+* **Performance**: The `random` module in recent versions has received underlying C-level optimizations, making large-scale Monte Carlo simulations faster than in older 3.x versions.
+
+##### Verification
+When you run this, the **Observed Win Rate** typically falls between **0.154** and **0.156**, which perfectly aligns with the mathematical derivation of **0.15517...**
+
+Would you like me to adapt this code to handle a "best of seven" series format instead?
+
+### <a id="s1.4_b_of_7"></a>Solution
+To adapt the simulation for a **"Best of Seven"** series, we shift from a random walk with absorbing boundaries (where points can be lost) to a **Binomial-style** series where points are only gained. 
+
+In a "Best of Seven," the first player to win **4 games** wins the series. This is a common format in professional sports like the NBA or MLB.
+
+##### Python 3.13 Implementation: Best of Seven
+This version uses a "points-to-win" target rather than a net score. We leverage **Python 3.13’s** improved performance and strict typing to ensure the simulation is both fast and robust.
+
+```python
+"""Simulation to calculate Alice's win probability in a Best of Seven series.
+
+In this format, the first player to reach 4 game wins takes the series.
+Alice has a 30% chance of winning any individual game.
+"""
+
+import random
+from dataclasses import dataclass
+from enum import Enum, auto
+from statistics import fmean
+from typing import Final
+
+# Alice's win probability per game (p = 0.3)
+ALICE_GAME_PROB: Final[float] = 0.3
+# In a Best of 7, the first to 4 wins the series
+GAMES_TO_WIN_SERIES: Final[int] = 4
+# Number of series to simulate
+NUM_SERIES_SIMULATIONS: Final[int] = 100_000
+
+class SeriesResult(Enum):
+    """Represent the outcome of a full series."""
+    ALICE_WINS_SERIES = auto()
+    BOB_WINS_SERIES = auto()
+
+@dataclass(frozen=True, slots=True)
+class SeriesConfig:
+    """Configuration for the series simulation using Python 3.13 slots."""
+    alice_prob: float
+    target_wins: int
+
+def simulate_best_of_n(config: SeriesConfig) -> SeriesResult:
+    """Simulates a series until one player reaches the target number of wins.
+
+    Args:
+        config: Parameters for the simulation.
+
+    Returns:
+        SeriesResult.ALICE_WINS_SERIES if Alice reaches target first.
+    """
+    alice_wins: int = 0
+    bob_wins: int = 0
+
+    while alice_wins < config.target_wins and bob_wins < config.target_wins:
+        if random.random() < config.alice_prob:
+            alice_wins += 1
+        else:
+            bob_wins += 1
+
+    return (
+        SeriesResult.ALICE_WINS_SERIES 
+        if alice_wins == config.target_wins 
+        else SeriesResult.BOB_WINS_SERIES
+    )
+
+def main() -> None:
+    """Execute the Monte Carlo simulation and print results."""
+    config = SeriesConfig(alice_prob=ALICE_GAME_PROB, target_wins=GAMES_TO_WIN_SERIES)
+    
+    # Efficiently gather results using a generator expression
+    series_outcomes = (
+        1 if simulate_best_of_n(config) == SeriesResult.ALICE_WINS_SERIES else 0
+        for _ in range(NUM_SERIES_SIMULATIONS)
+    )
+    
+    observed_prob = fmean(series_outcomes)
+    
+    # Theoretical probability calculation: 
+    # Sum of Binomial probabilities for Alice winning 4, 5, 6, or 7 games.
+    # P(Alice wins) = p^4 + 4p^4q + 10p^4q^2 + 20p^4q^3
+    p, q = 0.3, 0.7
+    theoretical_prob = (p**4) + (4 * p**4 * q) + (10 * p**4 * q**2) + (20 * p**4 * q**3)
+
+    print(f"--- Best of Seven Results ({NUM_SERIES_SIMULATIONS:,} Series) ---")
+    print(f"Alice Game Win %:     {ALICE_GAME_PROB * 100}%")
+    print(f"Observed Series Win %: {observed_prob * 100:.2f}%")
+    print(f"Theoretical Series %:  {theoretical_prob * 100:.2f}%")
+    print(f"Difference:            {abs(observed_prob - theoretical_prob):.5f}")
+
+if __name__ == "__main__":
+    main()
+```
+
+##### Key Logic and Statistics
+In a "Best of Seven" ($n=7$, target=4), Alice wins the series if she wins exactly 4, 5, 6, or 7 games out of the maximum 7 played. However, the series stops once she hits 4. Mathematically, the probability is the sum of the following binomial cases:
+- 1.  **4-0:** $\binom{3}{3} p^4 q^0 = p^4$ (She wins the first 4)
+- 2.  **4-1:** $\binom{4}{3} p^4 q^1 = 4p^4q$ (She wins 3 of the first 4, then the 5th)
+- 3.  **4-2:** $\binom{5}{3} p^4 q^2 = 10p^4q^2$ (She wins 3 of the first 5, then the 6th)
+- 4.  **4-3:** $\binom{6}{3} p^4 q^3 = 20p^4q^3$ (She wins 3 of the first 6, then the 7th)
+
+##### Results Comparison
+* **Original (First to lead by 2):** Alice's win probability was **~15.52%**.
+* **Best of Seven:** Alice's win probability drops to **~12.60%**.
+
+The "Best of Seven" format favors the stronger player (Bob) more than the "First to 2" format does. In probability theory, increasing the sample size ($n$) generally pushes the outcome closer to the expected value, making "upsets" by the underdog (Alice) less likely.
+
+##### Visualization of best of 7
+To visualize how the series length affects Alice's chances, we calculate the probability of her winning a "Best of $N$" series for various odd values of $N$. 
+
+As shown in the generated plot below, there is a clear downward trend. Even though Alice has a 30% chance to win any single game, her chance of winning the entire series **decreases** as the series gets longer.
+
+##### 1. Theoretical Analysis of the Trend
+In a "Best of $N$" series, Alice must win at least $k = \frac{N+1}{2}$ games. The probability $P(\text{Alice wins series})$ is the sum of binomial probabilities:
+
+$$P(\text{Alice wins}) = \sum_{i=k}^{N} \binom{N}{i} p^i (1-p)^{N-i}$$
+
+Where $p = 0.3$. 
+
+| Series Format | Alice's Win Prob ($P$) | Logic / Calculation |
+| :--- | :--- | :--- |
+| **Best of 1** | **0.3000** | Simply $p$ |
+| **Best of 3** | **0.2160** | $3p^2q + p^3$ |
+| **Best of 5** | **0.1631** | $10p^3q^2 + 5p^4q + p^5$ |
+| **Best of 7** | **0.1260** | $35p^4q^3 + 21p^5q^2 + 7p^6q + p^7$ |
+
+##### 2. Why the Underdog Loses More in Longer Series
+This phenomenon is a direct consequence of the **Law of Large Numbers**. 
+* **Short Series (High Variance):** In a single game (Best of 1), Alice only needs one "lucky" outcome to win. The variance is high, so the underdog has a fighting chance.
+* **Long Series (Low Variance):** As the number of games $N$ increases, the actual win frequency tends to converge toward the true probability ($30\%$). Since $30\%$ is less than the $50\%$ needed to win the series, the probability that Alice's "average" performance will be enough to win the series drops toward zero.
+
+##### 3. Comparison of Match Formats
+It is interesting to compare the two formats discussed earlier:
+* **"First to lead by 2" (Random Walk):** Alice wins with probability **~15.52%**.
+* **"Best of 7" (Fixed Max Games):** Alice wins with probability **~12.60%**.
+
+The "First to lead by 2" format is actually slightly **more favorable** for Alice than a "Best of 7" series. This is because a random walk allows for an "infinite" number of games where the score can swing back and forth, whereas a "Best of 7" strictly limits the number of opportunities she has to overcome Bob's statistical advantage.
+
+![alt text](./images/problem_3_best_of_7.png)
+
+##### 1. Theoretical Analysis of the Trend
+In a "Best of $N$" series, Alice must win at least $k = \frac{N+1}{2}$ games. The probability $P(\text{Alice wins series})$ is the sum of binomial probabilities:
+
+$$P(\text{Alice wins}) = \sum_{i=k}^{N} \binom{N}{i} p^i (1-p)^{N-i}$$
+
+Where $p = 0.3$. 
+
+| Series Format | Alice's Win Prob ($P$) | Logic / Calculation |
+| :--- | :--- | :--- |
+| **Best of 1** | **0.3000** | Simply $p$ |
+| **Best of 3** | **0.2160** | $3p^2q + p^3$ |
+| **Best of 5** | **0.1631** | $10p^3q^2 + 5p^4q + p^5$ |
+| **Best of 7** | **0.1260** | $35p^4q^3 + 21p^5q^2 + 7p^6q + p^7$ |
+
+##### 2. Why the Underdog Loses More in Longer Series
+This phenomenon is a direct consequence of the **Law of Large Numbers**. 
+* **Short Series (High Variance):** In a single game (Best of 1), Alice only needs one "lucky" outcome to win. The variance is high, so the underdog has a fighting chance.
+* **Long Series (Low Variance):** As the number of games $N$ increases, the actual win frequency tends to converge toward the true probability ($30\%$). Since $30\%$ is less than the $50\%$ needed to win the series, the probability that Alice's "average" performance will be enough to win the series drops toward zero.
+
+##### 3. Comparison of Match Formats
+It is interesting to compare the two formats discussed earlier:
+* **"First to lead by 2" (Random Walk):** Alice wins with probability **~15.52%**.
+* **"Best of 7" (Fixed Max Games):** Alice wins with probability **~12.60%**.
+
+The "First to lead by 2" format is actually slightly **more favorable** for Alice than a "Best of 7" series. This is because a random walk allows for an "infinite" number of games where the score can swing back and forth, whereas a "Best of 7" strictly limits the number of opportunities she has to overcome Bob's statistical advantage.
+
+##### Python 3.13 Visualization Script
+The following code was used to generate the plot. It utilizes modern Python typing and the `math.comb` function for efficient binomial coefficient calculations.
+
+```python
+import matplotlib.pyplot as plt
+import math
+from typing import List, Final
+
+def calculate_alice_win_prob(n_games: int, p_alice: float) -> float:
+    """Calculates the probability Alice wins a 'Best of N' series.
+    
+    A 'Best of N' series is won by the first person to reach (n_games + 1) // 2 wins.
+    This is equivalent to winning at least (n_games + 1) // 2 games out of n_games.
+
+    Args:
+        n_games: Total maximum games (must be odd).
+        p_alice: Probability Alice wins a single game.
+
+    Returns:
+        Probability Alice wins the series.
+    """
+    target: int = (n_games + 1) // 2
+    prob: float = 0.0
+    for k in range(target, n_games + 1):
+        combinations = math.comb(n_games, k)
+        prob += combinations * (p_alice ** k) * ((1 - p_alice) ** (n_games - k))
+    return prob
+
+def main() -> None:
+    """Generates a plot showing how series length affects win probability."""
+    p_alice: Final[float] = 0.3
+    # Series lengths (Best of 1, 3, 5, ..., 21)
+    series_lengths: List[int] = list(range(1, 41, 2))
+    win_probs: List[float] = [calculate_alice_win_prob(n, p_alice) for n in series_lengths]
+
+    # Plotting
+    fig, ax = plt.subplots(figsize=(10, 6))
+    ax.plot(series_lengths, win_probs, marker='o', linestyle='-', color='tab:red', label='Alice Win Prob')
+    
+    # Adding a reference line for the single game prob
+    ax.axhline(y=p_alice, color='gray', linestyle='--', alpha=0.5, label='Single Game Prob (0.3)')
+    # Adding a limit line (as n -> infinity, prob -> 0 for the underdog)
+    ax.axhline(y=0, color='black', linewidth=0.8)
+
+    ax.set_title(f'Alice\'s Series Win Probability vs. Series Length (p={p_alice})', fontsize=14)
+    ax.set_xlabel('Series Length (Best of N)', fontsize=12)
+    ax.set_ylabel('Probability Alice Wins Series', fontsize=12)
+    ax.set_xticks(series_lengths)
+    ax.grid(True, linestyle=':', alpha=0.6)
+    ax.legend()
+
+    # Annotations to explain the Law of Large Numbers
+    ax.annotate('As series length increases,\nthe underdog\'s chance\napproaches zero.', 
+                xy=(series_lengths[-5], win_probs[-5]), 
+                xytext=(series_lengths[-10], win_probs[-5] + 0.05),
+                arrowprops=dict(facecolor='black', shrink=0.05, width=1, headwidth=5))
+
+    plt.tight_layout()
+    plt.savefig('alice_win_probability_plot.png')
+    print("Plot saved as alice_win_probability_plot.png")
+
+if __name__ == "__main__":
+    main()
+```
+
+This visualization confirms that if you are the underdog in a game of skill, your best strategy is to keep the match as short as possible! 
 
 ### <a id="p1.4"></a>Problem 1.4: Bean Weight Quest
+There are 8 beans, with one being marginally heavier than the rest. What is the least number of weighings needed with a balance scale to identify the heavier bean?
+
 #### <a id="h1.4"></a>Hint
 Each weighing on a balance scale has three possible outcomes: left side heavier, right side heavier, or balanced. This allows you to split the search space into 3 parts.
 
 #### <a id="s1.4"></a>Solution
-- With each weighing, we can divide the set of potentially heavy beans into three groups: those on the left pan, those on the right pan, and those not on the scale.
-- For $n$ weighings, the maximum number of beans we can distinguish is $3^n$.
-- We need $3^n \ge 8$.
-- For $n=1$, $3^1 = 3 < 8$.
-- For $n=2$, $3^2 = 9 \ge 8$.
-- Strategy:
-  - Weighing 1: Put 3 beans on the left and 3 on the right.
-    - If balanced, the heavy bean is among the 2 not weighed. (Weighing 2: Weigh these 2 against each other).
-    - If not balanced, the heavy bean is in the heavier pan (3 beans). (Weighing 2: Pick 2 of these 3 and weigh them. If balanced, the 3rd is heavy; otherwise, the heavier one is identified).
-- Thus, 2 weighings are sufficient.
+To solve this, we use a **decision tree** approach based on a balance scale. A balance scale has three possible outcomes for any weighing: the left side is heavier, the right side is heavier, or they are equal.
+
+Since each weighing provides $3$ possible pieces of information, $n$ weighings can distinguish up to $3^n$ items. For 8 beans, we need to find the smallest $n$ such that $3^n \geq 8$. Since $3^1 = 3$ and $3^2 = 9$, we know it can be done in **2 weighings**.
+
+---
+
+##### Step-by-Step Execution
+
+To find the heavy bean in exactly 2 weighings, we divide the beans into three groups as evenly as possible: **3, 3, and 2**.
+
+###### Weighing 1: Compare two groups of 3
+Place 3 beans on the left pan and 3 beans on the right pan. Leave 2 beans on the table.
+
+
+
+* **Outcome A: The scale balances.**
+    The heavy bean is one of the **2** left on the table.
+    * *Weighing 2:* Put one of the remaining beans on each side. The heavier side is your bean.
+* **Outcome B: The left side is heavier.**
+    The heavy bean is one of the **3** on the left pan.
+    * *Weighing 2:* From these 3, put one on the left, one on the right, and leave one aside.
+        * If it tips left, the left one is heavy.
+        * If it tips right, the right one is heavy.
+        * If they balance, the one set aside is heavy.
+* **Outcome C: The right side is heavier.**
+    The heavy bean is one of the **3** on the right pan.
+    * *Weighing 2:* Repeat the same logic as Outcome B using the 3 beans from the right pan.
+
+---
+
+##### Summary
+* **1st Weighing:** Reduces the search space from 8 beans down to 3 (or 2).
+* **2nd Weighing:** Identifies the specific heavy bean from the remaining small group.
+
+The least number of weighings needed is **2**.
 
 ### <a id="p1.5"></a>Problem 1.5: Biased Flip Picks
+A group includes 98 unbiased coins, one coin with heads on both sides, and another coin with tails on both sides. A coin is picked randomly and tossed once, landing on a head. What is the chance that the tossed coin is the one with two heads?
+
 #### <a id="h1.5"></a>Hint
 Use Bayes' Theorem. Let $H$ be the event of tossing a head and $C_{2H}$ be the event of picking the double-headed coin.
 
 #### <a id="s1.5"></a>Solution
-- Total coins $N = 100$.
-- Let $C_{2H}$ be the event "Double-headed coin is picked" ($P(C_{2H}) = 1/100$).
-- Let $C_{2T}$ be the event "Double-tailed coin is picked" ($P(C_{2T}) = 1/100$).
-- Let $C_{fair}$ be the event "Fair coin is picked" ($P(C_{fair}) = 98/100$).
-- Let $H$ be the event "The toss results in Heads".
-  - $P(H|C_{2H}) = 1$
-  - $P(H|C_{2T}) = 0$
-  - $P(H|C_{fair}) = 0.5$
-- Total probability of Heads:
-  - $P(H) = P(H|C_{2H})P(C_{2H}) + P(H|C_{2T})P(C_{2T}) + P(H|C_{fair})P(C_{fair})$
-  - $P(H) = (1 \times \frac{1}{100}) + (0 \times \frac{1}{100}) + (0.5 \times \frac{98}{100}) = \frac{1}{100} + \frac{49}{100} = \frac{50}{100} = 0.5$.
-- Using Bayes' Theorem:
-  - $P(C_{2H}|H) = \frac{P(H|C_{2H})P(C_{2H})}{P(H)} = \frac{1 \times 1/100}{0.5} = \frac{0.01}{0.5} = \frac{1}{50}$.
+To solve this problem, we use **Bayes' Theorem**. This theorem allows us to update the probability of a hypothesis (which coin was picked) based on new evidence (the result of the toss).
+
+##### 1. Identify the Coin Types
+The group contains a total of **100 coins**:
+* **Type A (Two-Headed):** 1 coin ($P(H|A) = 1$)
+* **Type B (Two-Tailed):** 1 coin ($P(H|B) = 0$)
+* **Type C (Normal/Unbiased):** 98 coins ($P(H|C) = 0.5$)
+
+---
+
+##### 2. Define the Events
+* $A$: The coin picked is the two-headed coin.
+* $C$: The coin picked is a normal coin.
+* $H$: The result of the toss is a Head.
+
+We want to find **$P(A|H)$**: The probability that the coin is two-headed, *given* that we saw a head.
+
+---
+
+##### 3. Calculate Prior and Conditional Probabilities
+First, we find the probability of picking each type of coin (the "Priors"):
+* $P(A) = \frac{1}{100} = 0.01$
+* $P(C) = \frac{98}{100} = 0.98$
+* (We ignore the two-tailed coin because the probability of it landing on heads is zero).
+
+Next, we look at the probability of tossing a head for each coin:
+* $P(H|A) = 1$ (100% chance for the two-headed coin)
+* $P(H|C) = 0.5$ (50% chance for a normal coin)
+
+---
+
+##### 4. Calculate Total Probability of a Head, $P(H)$
+To find the total probability of seeing a head, we sum the probabilities of all paths that lead to a head:
+$$P(H) = [P(A) \times P(H|A)] + [P(C) \times P(H|C)]$$
+$$P(H) = [0.01 \times 1] + [0.98 \times 0.5]$$
+$$P(H) = 0.01 + 0.49 = 0.50$$
+
+---
+
+##### 5. Apply Bayes' Theorem
+Now we calculate the posterior probability:
+$$P(A|H) = \frac{P(A) \times P(H|A)}{P(H)}$$
+$$P(A|H) = \frac{0.01 \times 1}{0.50}$$
+$$P(A|H) = \frac{0.01}{0.50} = \frac{1}{50}$$
+
+##### Final Result
+The probability that the tossed coin is the two-headed one is **$1/50$** or **$2\%$**.
+
+**Intuition Check:**
+Out of 100 coins, there are 200 total sides. 100 of those sides are heads (2 from the two-headed coin and 98 from the normal coins). If you see a head, you are looking at one of those 100 head-sides. Only 2 of those sides belong to the two-headed coin. Thus, $2/100 = 1/50$.
+
+#### Simulate this experiment and verify the 2% result using Python
+To verify the probability of **2%** (or $1/50$), we can simulate the process of picking a coin and tossing it millions of times. 
+
+In this **Python 3.13** simulation, we use a structured approach with `enum` for coin types and `statistics` for result aggregation.
+
+```python
+"""Simulation of the 100-coin Bayes' Theorem problem.
+
+This module picks a coin from a pool (98 fair, 1 double-head, 1 double-tail),
+tosses it, and calculates the conditional probability that a coin is the 
+double-headed one given that it landed on Heads.
+"""
+
+import random
+from dataclasses import dataclass
+from enum import Enum, auto
+from statistics import fmean
+from typing import Final, List
+
+# Total number of coins in the experiment
+TOTAL_COINS: Final[int] = 100
+# Number of trial iterations
+NUM_TRIALS: Final[int] = 1_000_000
+
+class CoinType(Enum):
+    """Types of coins available in the pool."""
+    FAIR = auto()
+    DOUBLE_HEAD = auto()
+    DOUBLE_TAIL = auto()
+
+@dataclass(frozen=True, slots=True)
+class TossResult:
+    """The outcome of a single experiment trial."""
+    coin_type: CoinType
+    is_head: bool
+
+def simulate_toss() -> TossResult:
+    """Randomly selects a coin and performs one toss.
+    
+    Returns:
+        A TossResult object containing the coin identity and toss outcome.
+    """
+    # Create the pool: 0 is Double-Head, 1 is Double-Tail, 2-99 are Fair
+    pick = random.randint(0, TOTAL_COINS - 1)
+    
+    if pick == 0:
+        return TossResult(CoinType.DOUBLE_HEAD, True)
+    if pick == 1:
+        return TossResult(CoinType.DOUBLE_TAIL, False)
+    
+    # Fair coin: 50/50 chance
+    return TossResult(CoinType.FAIR, random.random() < 0.5)
+
+def run_simulation(iterations: int) -> float:
+    """Runs the simulation and filters for trials where the result was 'Head'.
+    
+    Args:
+        iterations: The total number of coins to pick and toss.
+        
+    Returns:
+        The ratio of (Double-Head coins) / (All trials that resulted in Heads).
+    """
+    heads_count: int = 0
+    double_head_given_heads: int = 0
+    
+    for _ in range(iterations):
+        result = simulate_toss()
+        
+        if result.is_head:
+            heads_count += 1
+            if result.coin_type == CoinType.DOUBLE_HEAD:
+                double_head_given_heads += 1
+                
+    if heads_count == 0:
+        return 0.0
+        
+    return double_head_given_heads / heads_count
+
+if __name__ == "__main__":
+    observed_prob = run_simulation(NUM_TRIALS)
+    theoretical_prob = 1 / 50
+    
+    print(f"--- Simulation Results ({NUM_TRIALS:,} trials) ---")
+    print(f"Observed P(Double-Head | Head):    {observed_prob:.5%}")
+    print(f"Theoretical P(Double-Head | Head): {theoretical_prob:.5%}")
+    print(f"Difference:                        {abs(observed_prob - theoretical_prob):.7f}")
+```
+
+### Why the result is exactly 2%
+The simulation consistently converges to **0.02** because of the way the "Head" sample space is constructed:
+
+1.  **The "Head" Pool:** In 1,000,000 tosses, roughly 500,000 will be Heads.
+    * ~10,000 Heads come from the **Double-Headed** coin (since it's picked 1% of the time and always lands on heads).
+    * ~490,000 Heads come from the **98 Fair** coins (since they are picked 98% of the time and land on heads 50% of the time).
+    * 0 Heads come from the Double-Tailed coin.
+2.  **The Probability:** We are asking: "Given that we are in that pool of 500,000 Heads, what is the chance we have the Double-Headed coin?"
+    $$\frac{10,000}{10,000 + 490,000} = \frac{10,000}{500,000} = \frac{1}{50} = 0.02$$
 
 ### <a id="p1.6"></a>Problem 1.6: Blue Overload Quest
 #### <a id="h1.6"></a>Hint

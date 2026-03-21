@@ -7,6 +7,9 @@ This repository contains a collection of quantitative interview questions from C
 ## 1. Medium Difficulty Level
 
 ### <a id="p1.1"></a>Problem 1.1: Chance Meeting
+Two quants are arranging a meal at Dorsia. Suppose each one independently shows up at a uniformly random time between 
+8:00pm and 9:00pm, staying precisely 10 minutes before leaving. What is the probability that they will encounter each other and dine together?
+
 #### <a id="h1.1"></a>Hint
 Represent the arrival times as coordinates $(X, Y)$ in a $60 \times 60$ square. The condition for meeting is $|X - Y| \le 10$.
 
@@ -22,6 +25,46 @@ Represent the arrival times as coordinates $(X, Y)$ in a $60 \times 60$ square. 
   - Total "no-meet" area = $1250 + 1250 = 2500$.
 - The "meet" area = $3600 - 2500 = 1100$.
 - $P(\text{Meeting}) = \frac{1100}{3600} = \frac{11}{36}$.
+
+The solution to the likelihood of the two quants meeting is $11/36$.
+This is a classic geometric probability problem where time is represented as a physical area. Because arrival times $X$ and $Y$ are independent and uniform, every possible pair of arrival times $(X, Y)$ within the hour is equally likely. [1, 2] 
+1. Define the sample space
+Since both quants can arrive at any point between 8:00 PM and 9:00 PM (0 to 60 minutes), the total sample space is a $60 \times 60$ square.
+
+* Total Area = $60 \times 60 = 3600$ square units. [3] 
+
+2. Identify the meeting condition
+The quants meet only if the time between their arrivals is 10 minutes or less. Mathematically, this is expressed as:
+$$|Y - X| \leq 10$$ This inequality creates a shaded "strip" along the diagonal of the $60 \times 60$ square. It is easier to calculate the area where they don't meet and subtract it from the total. [2, 4] 
+3. Calculate the non-meeting area
+They fail to meet if $|Y - X| > 10$. This happens in two scenarios:
+
+* Quant $Y$ arrives more than 10 minutes after $X$: $Y - X > 10 \implies Y > X + 10$
+* Quant $X$ arrives more than 10 minutes after $Y$: $X - Y > 10 \implies Y < X - 10$
+
+These regions form two identical right triangles in the corners of the square. Each triangle has legs of length $50$ ($60 - 10 = 50$). [3] 
+
+* Area of one triangle = $\frac{1}{2} \times 50 \times 50 = 1250$
+* Total non-meeting area = $1250 + 1250 = 2500$ (or $50^2 = 2500$)
+
+4. Find the meeting area and probability
+To find the area where they do meet, subtract the non-meeting area from the total square:
+
+* Meeting Area = $3600 - 2500 = 1100$
+* Probability = $\frac{\text{Meeting Area}}{\text{Total Area}} = \frac{1100}{3600}$ [2, 3] 
+
+Reducing the fraction gives you:
+$$\frac{1100}{3600} = \frac{11}{36}$$ 
+Final Answer
+The probability that the quants meet is $11/36$.
+This result confirms that in a one-hour window, if both people wait 10 minutes, they have a roughly 30.5% chance of connecting.
+Would you like to see how this probability changes if the waiting time is increased or decreased?
+
+[1] [https://bookdown.org](https://bookdown.org/kevin_davisross/probsim-book/sec-language-outcomes.html)
+[2] [https://www.vaia.com](https://www.vaia.com/en-us/textbooks/math/statistics-1-edition/chapter-5/problem-199-two-individuals-agree-to-meet-at-a-certain-spot-/)
+[3] [https://www.vaia.com](https://www.vaia.com/en-us/textbooks/math/finite-discrete-math-1-edition/chapter-9/problem-521-two-individuals-agree-to-meet-at-a-certain-spot-/#:~:text=Define%20the%20Region%20of%20Interest%20If%20we,X%20%E2%88%92%20Y%20%7C%20%E2%89%A4%2010%20.)
+[4] [https://math.stackexchange.com](https://math.stackexchange.com/questions/2759244/probability-two-people-will-meet-within-10-minutes-of-each-other)
+
 
 ### <a id="p1.2"></a>Problem 1.2: Absolute Expectation Twist
 #### <a id="h1.2"></a>Hint
